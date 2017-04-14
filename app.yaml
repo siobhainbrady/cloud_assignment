@@ -1,0 +1,18 @@
+runtime: php55
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /.*
+  script: index.php
+  
+- url: /.*
+  script: insert.php
+  
+- url: /.*
+  script: connection.php
+  
+env_variables:
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/shop-application:us-central1:shop-database;dbname=shop_database
+  MYSQL_USER: root
+  MYSQL_PASSWORD: 'shopdatabase'
